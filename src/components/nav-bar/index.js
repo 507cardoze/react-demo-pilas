@@ -12,7 +12,7 @@ function Navigation() {
     <AppBar position="static" id="nav-bar">
       <Toolbar>
         <Typography variant="h6" component="div">
-          Proyecto UTP || Estructura de datos
+          UTP || Estructura de datos I
         </Typography>
         <Divider orientation="vertical" flexItem sx={{ mx: 2 }} />
         <Button component={Link} to="/" color="inherit">
