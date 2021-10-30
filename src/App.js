@@ -8,6 +8,7 @@ import PageLayout from "./components/page-layout";
 function App() {
   const Home = lazy(() => import("./pages/home"));
   const Pilas = lazy(() => import("./pages/pilas"));
+  const Integrantes = lazy(() => import("./pages/integrantes"));
   return (
     <Suspense fallback={<Spinner />}>
       <BrowserRouter>
@@ -16,6 +17,7 @@ function App() {
           <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/pilas" component={Pilas} />
+            <Route path="/integrantes" component={Integrantes} />
             <Route
               path="*"
               render={(props) => <Redirect to="/" {...props} />}
