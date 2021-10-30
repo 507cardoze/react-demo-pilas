@@ -3,11 +3,9 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import { Card, CardContent, Box, Stack } from "@mui/material";
 import "./styles.css";
-//import { motion } from "framer-motion";
 
 function Pilas() {
   const [pila, setPila] = useState([]);
-  const [action, setAction] = useState(false);
 
   function generateNumber(min, max) {
     return Math.floor(Math.random() * (max - min) + min);
@@ -15,8 +13,7 @@ function Pilas() {
 
   const handlePush = () => {
     if (pila.length < 6) {
-      setAction(true);
-      const number = generateNumber(1, 100);
+      const number = generateNumber(1, 99);
       const newArray = [...pila, number];
       setPila(newArray);
     }
@@ -25,7 +22,6 @@ function Pilas() {
   };
 
   const handlePop = () => {
-    setAction(false);
     const newArray = [...pila];
     newArray.pop();
     setPila(newArray);
@@ -92,18 +88,19 @@ function Pilas() {
                   minWidth: 64 + 25,
                 }}
               >
-                {pila.map((value) => (
+                {pila.map((value, index) => (
                   <Box
                     className="slide-in-right"
                     sx={{
-                      width: 64,
-                      height: 64,
-                      fontSize: "24px",
+                      width: 84,
+                      height: 84,
+                      fontSize: "16px",
                       fontWeight: "bold",
                       border: "1px solid black",
                       display: "flex",
                       justifyContent: "center",
                       alignItems: "center",
+                      flexDirection: "column",
                       backgroundColor: "lightgray",
                       "&:hover": {
                         backgroundColor: "gray",
@@ -112,7 +109,8 @@ function Pilas() {
                       m: 0.5,
                     }}
                   >
-                    {value}
+                    <span>{`Indice: ${index + 1}`}</span>
+                    <span>{`Valor: ${value}`}</span>
                   </Box>
                 ))}
               </Box>
