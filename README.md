@@ -5,6 +5,10 @@
 ### Integrantes
 
 > Anthony Cardoze 8-850-1742
+> Lisbeth Castro 8-757-2197
+> Sol Alveo 3-730-118
+> Adán Serrano 8-998-2426
+> Diego Caballero 8-911-1979
 
 ### Objetivo:
 

@@ -3,9 +3,11 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import { Card, CardContent, Box, Stack } from "@mui/material";
 import "./styles.css";
+//import { motion } from "framer-motion";
 
 function Pilas() {
   const [pila, setPila] = useState([]);
+  const [action, setAction] = useState(false);
 
   function generateNumber(min, max) {
     return Math.floor(Math.random() * (max - min) + min);
@@ -13,6 +15,7 @@ function Pilas() {
 
   const handlePush = () => {
     if (pila.length < 6) {
+      setAction(true);
       const number = generateNumber(1, 100);
       const newArray = [...pila, number];
       setPila(newArray);
@@ -22,6 +25,7 @@ function Pilas() {
   };
 
   const handlePop = () => {
+    setAction(false);
     const newArray = [...pila];
     newArray.pop();
     setPila(newArray);
@@ -90,9 +94,12 @@ function Pilas() {
               >
                 {pila.map((value) => (
                   <Box
+                    className="slide-in-right"
                     sx={{
                       width: 64,
                       height: 64,
+                      fontSize: "24px",
+                      fontWeight: "bold",
                       border: "1px solid black",
                       display: "flex",
                       justifyContent: "center",
