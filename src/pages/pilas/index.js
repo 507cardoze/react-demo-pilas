@@ -62,8 +62,8 @@ function Pilas() {
         </div>
       </section>
       <section id="workplace">
-        <Card raised sx={{ width: "75%", height: "75%" }}>
-          <CardContent raised>
+        <Card raised sx={{ width: "90%" }}>
+          <CardContent>
             <Stack
               spacing={2}
               direction={{ xs: "column", lg: "row" }}
@@ -185,7 +185,7 @@ function Pilas() {
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
-                my: 5,
+                m: 5,
               }}
             >
               <Button
