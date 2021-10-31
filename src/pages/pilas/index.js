@@ -1,20 +1,18 @@
 import { useState } from "react";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
-import { Card, CardContent, Box, Stack } from "@mui/material";
+import { Card, CardContent, Box, Stack, TextField } from "@mui/material";
 import "./styles.css";
 
 function Pilas() {
   const [pila, setPila] = useState([]);
+  const [input, setInput] = useState(0);
 
-  function generateNumber(min, max) {
-    return Math.floor(Math.random() * (max - min) + min);
-  }
-
-  const handlePush = () => {
+  const handlePush = (event) => {
+    event.preventDefault();
     if (pila.length < 6) {
-      const number = generateNumber(1, 99);
-      const newArray = [...pila, number];
+      const newArray = [...pila, input];
+      setInput("");
       setPila(newArray);
     }
 
@@ -26,6 +24,8 @@ function Pilas() {
     newArray.pop();
     setPila(newArray);
   };
+
+  console.log(input);
 
   return (
     <>
@@ -188,16 +188,32 @@ function Pilas() {
                 m: 5,
               }}
             >
-              <Button
-                component="a"
-                size="large"
-                href="#workplace"
-                variant="contained"
-                onClick={handlePush}
-                disabled={pila.length >= 6 ? true : false}
-              >
-                Agregar numero a la pila
-              </Button>
+              <Stack component="form" onSubmit={handlePush} spacing={2}>
+                <TextField
+                  required
+                  label="Requerido"
+                  type="number"
+                  value={input}
+                  onChange={(event) => {
+                    const number = parseInt(event.target.value);
+                    if (number <= 100 && number > 0) {
+                      setInput(number);
+                    }
+                  }}
+                />
+                <Button
+                  type="submit"
+                  size="large"
+                  variant="contained"
+                  disabled={
+                    pila.length >= 6 || (input >= 0 && input > 100)
+                      ? true
+                      : false
+                  }
+                >
+                  Agregar numero a la pila
+                </Button>
+              </Stack>
               <Button
                 component="a"
                 size="large"
