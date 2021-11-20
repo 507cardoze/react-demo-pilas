@@ -17,6 +17,10 @@ function Navigation() {
         <Button component={Link} to="/pilas" color="inherit">
           Pilas
         </Button>
+        <Divider orientation="vertical" flexItem sx={{ mx: 2 }} />
+        <Button component={Link} to="/colas" color="inherit">
+          Colas
+        </Button>
         <Divider orientation="vertical" flexItem sx={{ flexGrow: 1 }} />
         <Button component={Link} to="/integrantes" color="inherit">
           Integrantes

@@ -25,8 +25,6 @@ function Pilas() {
     setPila(newArray);
   };
 
-  console.log(input);
-
   return (
     <>
       <section id="pilas">
