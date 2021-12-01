@@ -14,7 +14,8 @@ function Colas() {
       }
       
     const desColar = () => {
-        setCola(cola.slice(1))  
+        setCola(cola.slice(1))
+        setInput(0);
       }
 
     //   const findByIdQueue = (array, id) => {
@@ -114,12 +115,33 @@ function Colas() {
                       m: 0.5,
                     }}
                   >
-                    <span>{`Indice: ${index + 1}`}</span>
                     <span>{`Valor: ${value}`}</span>
                   </Box>
                 ))}
               </Box>
             </Stack>
+            <Box style={{marginBottom: "30px"}}>
+              <Stack style={{flexDirection: "row", margin: "15px"}}>
+              <Typography className="gray-text" variant="h3" component="div">
+                Frente:
+              </Typography>
+              <div style={{flexGrow: 1}} />
+              <Typography className="gray-text" variant="h3" component="div">
+                {cola.length ? cola[0] : "No hay elementos."}
+              </Typography>
+              </Stack>
+              <Stack style={{flexDirection: "row", margin: "15px"}}>
+              <Typography className="gray-text" variant="h3" component="div">
+                Final:
+              </Typography>
+              <div style={{flexGrow: 1}} />
+              <Typography className="gray-text" variant="h3" component="div">
+              {cola.length ? cola[cola.length -1] : "No hay elementos."}
+              </Typography>
+              </Stack>
+            
+            
+              </Box>
 
             <Stack component="form" 
             onSubmit={enColar} 
@@ -141,7 +163,7 @@ function Colas() {
                   size="large"
                   variant="contained"
                   disabled={
-                    cola.length >= 6 || (input >= 0 && input > 100)
+                    cola.length >= 6 || input <= 0
                       ? true
                       : false
                   }
@@ -151,7 +173,6 @@ function Colas() {
                 <Button
                 component="a"
                 size="large"
-                href="#workplace"
                 variant="contained"
                 onClick={desColar}
                 disabled={cola.length === 0 ? true : false}
