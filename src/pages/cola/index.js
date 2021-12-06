@@ -148,7 +148,7 @@ function Colas() {
                   value={input}
                   onChange={(event) => {
                     const number = parseInt(event.target.value);
-                    if (number <= 100 && number > 0) {
+                    if (number < 100 && number > 0) {
                       setInput(number);
                     }
                   }}
